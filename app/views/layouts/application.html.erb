@@ -7,13 +7,10 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-  <%= render 'layouts/header'%>
-
-  <div class="jumbotron container-fluid center ">
-  <% flash.each do |message_type, message|%>
-    <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
-  <% end %>
-  <%= yield %>
-  </div>
+    <%= render 'layouts/header'%>
+    <div class="jumbotron container-fluid center ">
+    <%= render 'layouts/messages'%>
+     <%= yield %>
+    </div>
   </body>
 </html>
