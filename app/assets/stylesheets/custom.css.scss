@@ -1,6 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+@mixin box_sizing {
+  -moz-box-sizing:    border-box;
+  -webkit-box-sizing: border-box;
+  box-sizng:          border-box;
+}
+
 body {
   padding-top: 60px;
 }
@@ -14,16 +20,24 @@ textarea {
 }
 
 .center {
-  text-align: center;
-}
-
-.center h1 {
-  margin-bottom: 10px;
+  text-align: center
+ h1 {
+   margin-bottom: 10px;
+  }
 }
 
 h1 {
   text-align: center;
   padding-bottom: 6%;
+}
+
+/* miscellaneous */
+.debug_dump {
+  clear: both;
+  float: left;
+  width: 100%;
+  margin-top: 45px;
+  @include box_sizing;
 }
 
 /* typography */
@@ -78,9 +92,10 @@ p {
 .alert-notice {
     background-color: #dff0d8;
     border-color: #d6e9c6;
-    color: #468847;
+    color:   #468847;
     text-align: left;
  }
+
 
 /* header */
 #logo {
@@ -98,4 +113,58 @@ p {
 .navbar {
  // background-color: #98AFC7;
  background-color: #d5dfe8;
+}
+
+/* forms */
+
+input, textarea, select, .uneditable-input {
+  border: 1px solid #bbb;
+  width: 100%;
+  margin-bottom: 15px;
+  padding: 7px;
+  @include box_sizing;
+}
+
+input {
+  height: auto !important;
+}
+
+.checkbox {
+  width: 50%;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  .chck{
+   float: left;
+   margin: 0px;
+  }
+  span {
+    margin-left: 20px;
+    font-weight: normal;
+
+  }
+}
+
+.submit {
+ background-color: #dff0d8;
+}
+
+#session_remember_me {
+  width: auto;
+  margin-left: 0;
+}
+
+#links{
+  margin-top: 10%;
+  width: 100%;
+  .btn {
+    margin-bottom: 5px;
+    float: left;
+    width: 50%;
+    margin-right: 5%;
+  }
+  h2{
+  padding-left: 20%;
+  text-align: left;
+  width: 100%;
+  }
 }
