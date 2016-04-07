@@ -1,10 +1,10 @@
 class Users::RegistrationsController < Devise::RegistrationsController
-# before_filter :configure_sign_up_params, only: [:create]
+# before_filter :configure_sign_up_params, if: :devise_controller?
 # before_filter :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
   # def new
-  #   super
+  #  @user = User.new
   # end
 
   # POST /resource
@@ -36,11 +36,17 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  #protected
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_sign_up_params
-  #   devise_parameter_sanitizer.for(:sign_up) << :attribute
+    # devise_parameter_sanitizer.for(:sign_up).push(:first_name, :last_name) << :attribute
+    # devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:first_name, :last_name, :email, :password, :password_confirmation) } # The :firstname and :lastname are my custom fields.
+    # devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :last_name, :email, :password, :password_confirmation])
+    # devise_paramater_sanitizer.permit(:sign_up) do |user_params|
+    # user_params.permit(:first_name, :last_name, :email, :password, :password_confirmation)
+    # end
+    #params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
   # end
 
   # If you have extra params to permit, append them to the sanitizer.
