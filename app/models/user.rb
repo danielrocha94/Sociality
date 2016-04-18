@@ -3,4 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+  before_save {self.first_name = first_name.downcase.capitalize}
+  before_save {self.last_name = last_name.downcase.capitalize}
+  validates :first_name, presence: true, length: {maximum: 30}
+  validates :last_name, presence: true, length: {maximum: 30}
 end

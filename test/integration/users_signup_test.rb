@@ -10,9 +10,12 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     get new_user_registration_path
     assert_template 'registrations/new'
     assert_difference 'User.count', 1 do
-      post_via_redirect root_path, user: { email: "user1@test.com",
-                                         password:              "password",
-                                         password_confirmation: "password"
+      post_via_redirect root_path, user: {
+                                          first_name: "user",
+                                          last_name: "example",
+                                          email: "user1@test.com",
+                                          password:              "password",
+                                          password_confirmation: "password"
                                          }
     end
     assert_template 'static_pages/home'
