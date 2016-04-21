@@ -10,7 +10,9 @@ Rails.application.routes.draw do
                      :sign_up => 'register'
                      }
   resources :users
-
+  authenticated :user do
+    root 'users#index', as: :authenticated_root
+  end
   root 'static_pages#home'
 
   get 'help'    => 'static_pages#help'
