@@ -11,13 +11,18 @@ Rails.application.routes.draw do
                      }
   resources :users
   authenticated :user do
-    root 'users#index', as: :authenticated_root
+    root 'posts#index', as: :authenticated_root
   end
   root 'static_pages#home'
 
   get 'help'    => 'static_pages#help'
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
+
+  resources :posts
+
+  post 'posts/:id/upvote' => 'posts#upvote', as: "upvote"
+  post 'posts/:id/downvote' => 'posts#downvote', as: "downvote"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
