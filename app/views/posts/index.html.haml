@@ -1,0 +1,28 @@
+.row
+  .col-md-6.col-md-offset-3
+    - @posts.each do |post|
+      .col.col-12.block.left
+        %ul.pl0.ml0
+          %li.list-style-none
+            .h3.bold
+              = post.title
+            %div
+              = post.content
+        %div
+          points:
+          = (post.upvotes - post.downvotes)
+          •
+          comments
+
+        %div
+          = link_to upvote_path(post), method: :post do
+            .btn.btn-default
+              %i.fa.fa-arrow-up
+          = link_to downvote_path(post), method: :post do
+            .btn.btn-default
+              %i.fa.fa-arrow-down
+          = link_to post_path(post) do
+            .btn.btn-default
+              %i.fa.fa-comment
+        %hr
+
