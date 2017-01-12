@@ -2,13 +2,14 @@
   .col-md-6.col-md-offset-3
     %p.h1.center
       Create a new Post
-    = form_for @post do |f|
+    = form_for @post, html: { multipart: true } do |f|
       %div.field
         = f.label :title
         = f.text_field :title, autofocus: true
       %div.field
+        = f.file_field :content
         = f.label :content
-        = f.text_area :content, size: "5x5"
+        = #f.text_area :content, size: "5x5"
       %div.actions
         = f.submit "Create post", :class => "btn btn-primary"
 

@@ -16,13 +16,13 @@
         = link_to downvote_path(@post), method: :post, remote: true do
           .btn.btn-default
             %i.fa.fa-arrow-down
-      %div
-        = @post.content
+      %div.pt2.center
+        = image_tag @post.content.url(:big)
       %hr
       %section.comment-section
         .comments
           %h2 Comments
-          .comment-form
+          .comment-form.center
             = render :partial => 'comments/form', :locals => { :comment => @new_comment }
           %ol.comments-collection
             = render @comments

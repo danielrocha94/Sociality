@@ -7,7 +7,7 @@
             .h3.bold
               = post.title
             %div
-              = post.content
+              = image_tag post.content.url(:big)
         %span{id: "vote-#{post.id}"}
           = pluralize((post.upvotes - post.downvotes), 'point')
         •
