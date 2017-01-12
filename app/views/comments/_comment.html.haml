@@ -2,7 +2,7 @@
   %div.col.col-12.py2
     %li.comment.list-style-none.py1
       %span.wrap.left
-        = gravatar_for comment.user, size: 50
+        = gravatar_for comment.user, {size: 50, style: 'thumb'}
       %span.pt0.mt0.pl2.align-top.col.col-6
         %div
           %span.fs-14.bold
@@ -27,7 +27,7 @@
   - comment.replies.each do |comment|
     %div.col.col-10{:style => 'margin-left:16px;'}
       %span.wrap.left
-        = gravatar_for(comment.user, size: 35)
+        = gravatar_for(comment.user, {size: 35, style: 'reply'})
       %span.pt0.mt0.pl2.align-top.col.col-6
         %div
           %span.fs-14.bold

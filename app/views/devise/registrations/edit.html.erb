@@ -1,7 +1,14 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<h1>Edit <%= resource_name.to_s.humanize %></h1>
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put }) do |f| %>
   <%= devise_error_messages! %>
+  <div>
+    <%= f.label :profile_picture %>
+    <%= f.file_field :profile_picture %>
+  </div>
 
   <div class="field">
     <%= f.label :first_name %><br />
@@ -47,3 +54,5 @@
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
 
 <%= button_to "Back", :back, class: "btn-default back" %>
+</div>
+</div>

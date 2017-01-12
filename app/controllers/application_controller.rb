@@ -4,8 +4,9 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
-    additional_fields =[:first_name, :last_name]
+    additional_fields =[:first_name, :last_name, :profile_picture]
     devise_parameter_sanitizer.permit(:sign_up, keys: additional_fields)
+    devise_parameter_sanitizer.permit(:account_update, keys: additional_fields)
   end
   protect_from_forgery with: :exception
 

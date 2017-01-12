@@ -8,7 +8,7 @@
           <li class="dropdown">
               <a href="#" class="name dropdown-toggle" data-toggle="dropdown">
 
-                <%= gravatar_for(current_user, size: 20)%>
+                <%= gravatar_for(current_user, {size: 20, style:'tiny'})%>
                 <%= "#{current_user.first_name} " %><b class="caret"></b>
               </a>
               <ul class="dropdown-menu">
