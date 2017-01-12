@@ -1,0 +1,6 @@
+= form_for [@post, @comment], remote: true do |f|
+  .field
+    = f.text_area :content, size: "5x1", class: "comment-box"
+  .actions
+    = f.submit "Post", class: "btn btn-primary"
+

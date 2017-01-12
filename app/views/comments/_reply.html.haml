@@ -1,0 +1,24 @@
+%div.col.col-10{:style => 'margin-left:16px;'}
+  %span.wrap.left
+    = gravatar_for(current_user, size: 35)
+  %span.pt0.mt0.pl2.align-top.col.col-6
+    %div
+      %span.fs-14.bold
+        = current_user.first_name
+      %span.fs-13.comment-counters-text{ id: "vote-#{@comment.id}" }
+        = pluralize((@comment.upvotes - @comment.downvotes), 'point')
+      %span.fs-13.commenit-counters-text
+        ·
+        = time_ago_in_words(@comment.created_at)
+        ago
+  %span.pl1.col.col-8.pb1.mb0
+    %div.pt1
+      = @comment.content
+    %div
+      = link_to "Reply", reply_box_path(@comment), method: :post, remote: true
+      = link_to comment_upvote_path(@comment), method: :post, remote: true do
+        .btn.btn-default
+          %i.fa.fa-arrow-up
+      = link_to comment_downvote_path(@comment), method: :post, remote: true do
+        .btn.btn-default
+          %i.fa.fa-arrow-down

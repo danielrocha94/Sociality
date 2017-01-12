@@ -1,0 +1,12 @@
+%div.col.col-10{:style => 'margin-left:16px;'}
+  %span.wrap.left
+    = gravatar_for(current_user, size: 35)
+  = form_tag("/comments/#{@comment.id}/reply_post", method: "post", remote: true) do
+    %span.pl1.col.col-8.pb1.mb0
+      = text_field_tag("content", "@#{@comment.user.first_name} ", class: "mb0")
+    %span.col.col-9
+      = submit_tag("Post", :class => "right mr4 col-1 btn btn-primary", :style => "width:65px;")
+
+:javascript
+  tmp = $("#content").val();
+  $("#content").val("").focus().val(tmp);

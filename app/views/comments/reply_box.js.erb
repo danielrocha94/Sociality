@@ -1,0 +1,21 @@
+(function() {
+  if (typeof replyId === 'undefined') {
+    changeReplyWindow();
+  } else {
+    $("#reply-comment-"+replyId).empty();
+    changeReplyWindow();
+  }
+
+  function changeReplyWindow() {
+    var reply_of = "<%=@comment.reply_of %>";
+
+    if (reply_of === '') {
+      $("#reply-comment-<%=@comment.id%>").append('<%= j render :partial => 'reply_form' %>');
+      return replyId = "<%=@comment.id%>";
+    } else {
+      $("#reply-comment-<%=@comment.reply_of%>").append('<%= j render :partial => 'reply_form' %>');
+      return replyId = "<%=@comment.reply_of%>";
+    }
+  }
+}());
+

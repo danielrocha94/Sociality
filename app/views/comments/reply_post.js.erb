@@ -1,0 +1,5 @@
+(function() {
+  $()
+  $("#reply-post-<%= @comment.reply_of %>").append('<%= j render :partial => 'reply' %>');
+  $("#reply-comment-<%= @comment.reply_of%>").empty();
+}());

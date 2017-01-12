@@ -1,0 +1,1 @@
+$("#vote-<%=@vote.id%>").html('<%= pluralize((@vote.upvotes - @vote.downvotes), 'point')%>');
