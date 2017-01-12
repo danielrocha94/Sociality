@@ -3,13 +3,26 @@
     .col.col-12.block.left
       .h3.bold
         = @post.title
-      = @post.upvotes - @post.downvotes
-      points • comments
+      %span{id: "vote-#{@post.id}"}
+        = pluralize((@post.upvotes - @post.downvotes), 'point')
+      •
+      %span{id: "comments-#{@post.id}"}
+        = pluralize((@post.comments.count), 'comment')
+
       %div
-        = link_to upvote_path(@post), method: :post do
+        = link_to upvote_path(@post), method: :post, remote: true do
           .btn.btn-default
             %i.fa.fa-arrow-up
-        = link_to downvote_path(@post), method: :post do
+        = link_to downvote_path(@post), method: :post, remote: true do
           .btn.btn-default
             %i.fa.fa-arrow-down
+      %div
+        = @post.content
       %hr
+      %section.comment-section
+        .comments
+          %h2 Comments
+          .comment-form
+            = render :partial => 'comments/form', :locals => { :comment => @new_comment }
+          %ol.comments-collection
+            = render @comments

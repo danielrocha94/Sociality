@@ -19,10 +19,17 @@ Rails.application.routes.draw do
   get 'about'   => 'static_pages#about'
   get 'contact' => 'static_pages#contact'
 
-  resources :posts
+  resources :posts do
+    resources :comments, :only => [:create, :destroy]
+  end
 
   post 'posts/:id/upvote' => 'posts#upvote', as: "upvote"
   post 'posts/:id/downvote' => 'posts#downvote', as: "downvote"
+
+  post 'comments/:id/upvote' => 'comments#upvote', as: "comment_upvote"
+  post 'comments/:id/downvote' => 'comments#downvote', as: "comment_downvote"
+  post 'comments/:id/reply_box' => 'comments#reply_box', as: "reply_box"
+  post 'comments/:id/reply_post' => 'comments#reply_post', as: "reply_post"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

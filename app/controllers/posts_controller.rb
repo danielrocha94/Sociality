@@ -9,6 +9,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @comments = @post.comments
+    @comment = Comment.new(post_id: @post, user_id: current_user.id, content: "")
   end
 
   def new
@@ -35,14 +37,30 @@ class PostsController < ApplicationController
 
   def downvote
     post = Post.find(params[:id])
-    post.downvote!
-    head :no_content
+    @vote = post
+    if post.downvote!
+      respond_to do |format|
+        format.html do
+          flash[:success] = "Upvoted!"
+          redirect_to(:back)
+        end
+        format.js { render :file => "/comments/upvote" }
+      end
+    end
   end
 
   def upvote
     post = Post.find(params[:id])
-    post.upvote!
-    head :no_content
+    @vote = post
+    if post.upvote!
+      respond_to do |format|
+        format.html do
+          flash[:success] = "Upvoted!"
+          redirect_to(:back)
+        end
+        format.js { render :file => "/comments/upvote" }
+      end
+    end
   end
 
   private

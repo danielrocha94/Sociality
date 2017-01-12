@@ -1,14 +1,12 @@
 .row
   .col-md-6.col-md-offset-3
     = form_for @post do |f|
-
       %div.field
         = f.label :title
         = f.text_field :title, autofocus: true
-
       %div.field
         = f.label :content
         = f.text_area :content, size: "5x5"
-
       %div.actions
         = f.submit "Create post", :class => "btn btn-primary"
+
