@@ -274,7 +274,6 @@
 }
 /*
 .@media (min-width: map-get($breakpoints, 'small')){
-*/
   .sm-col{
     float:left;
     box-sizing:border-box;
@@ -338,9 +337,11 @@
   }
 
 }
+*/
+
 /*
 @media (min-width: map-get($breakpoints, 'medium')){
-*/
+
   .md-col{
     float:left;
     box-sizing:border-box;
@@ -402,9 +403,10 @@
   .md-justify-start { -webkit-box-pack:start; -webkit-justify-content:flex-start; -ms-flex-pack:start; justify-content:flex-start }
 
 }
+*/
 /*
 @media (min-width: map-get($breakpoints, 'large')){
-*/
+
   .lg-col{
     float:left;
     box-sizing:border-box;
@@ -464,6 +466,7 @@
   }
 
 }
+*/
 .flex{ display:-webkit-box; display:-webkit-flex; display:-ms-flexbox; display:flex }
 /*
 @media (min-width: map-get($breakpoints, 'small')){
