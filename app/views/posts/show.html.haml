@@ -3,11 +3,12 @@
     .col.col-12.block.left
       .h3.bold
         = @post.title
-      %span{id: "vote-#{@post.id}"}
-        = pluralize((@post.upvotes - @post.downvotes), 'point')
-      •
-      %span{id: "comments-#{@post.id}"}
-        = pluralize((@post.comments.count), 'comment')
+      %div.text-decoration-none.counters_link
+        %span{id: "vote-#{@post.id}"}
+          = pluralize((@post.upvotes - @post.downvotes), 'point')
+        •
+        %span{id: "comments-#{@post.id}"}
+          = link_to pluralize((@post.comments.count), 'comment'), :anchor => "comments_content"
 
       %div
         = link_to upvote_path(@post), method: :post, remote: true do
@@ -18,7 +19,7 @@
             %i.fa.fa-arrow-down
       %div.pt2.center
         = image_tag @post.content.url(:big)
-      %hr
+      %hr{id: 'comments_content'}
       %section.comment-section
         .comments
           %h2 Comments
