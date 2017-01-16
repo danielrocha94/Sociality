@@ -4,6 +4,8 @@ class Comment < ActiveRecord::Base
   belongs_to :user
   belongs_to :post
 
+  has_many :likes
+
   validates_presence_of :content, :user_id, :post_id
 
   def self.initialize_reply(content, comment_id, user_id)

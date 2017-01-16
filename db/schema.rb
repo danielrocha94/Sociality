@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170112141146) do
+ActiveRecord::Schema.define(version: 20170116123928) do
 
   create_table "comments", force: :cascade do |t|
     t.integer  "user_id"
@@ -23,6 +23,13 @@ ActiveRecord::Schema.define(version: 20170112141146) do
     t.datetime "updated_at",                 null: false
     t.boolean  "is_reply",   default: false
     t.integer  "reply_of"
+  end
+
+  create_table "likes", force: :cascade do |t|
+    t.integer  "comment_id"
+    t.integer  "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "posts", force: :cascade do |t|
