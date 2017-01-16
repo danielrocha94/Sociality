@@ -5,6 +5,7 @@ class Comment < ActiveRecord::Base
   belongs_to :post
 
   has_many :likes
+  has_many :users, through: :likes
 
   validates_presence_of :content, :user_id, :post_id
 
@@ -19,9 +20,11 @@ class Comment < ActiveRecord::Base
     })
   end
 
-  def upvote!
+  def upvote!(liked_by)
+    like = Like.new(user_id: liked_by.id, comment_id: self.id )
     self.upvotes += 1
     self.save!
+    return like
   end
 
   def downvote!
@@ -35,5 +38,9 @@ class Comment < ActiveRecord::Base
 
   def has_replies?
     Comment.where(reply_of: self.id).any?
+  end
+
+  def has_been_liked?
+    self.likes.where(user_id: user.id).any?
   end
 end

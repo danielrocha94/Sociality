@@ -31,8 +31,8 @@ class CommentsController < ApplicationController
 
   def upvote
     @comment = Comment.find(params[:id])
-    @vote = @comment
-    if @comment.upvote!
+    @vote = @comment #ajax purposes
+    if @comment.upvote!(current_user).save
       respond_to do |format|
         format.html do
           flash[:success] = "Upvoted!"
