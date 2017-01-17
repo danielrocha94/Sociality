@@ -30,9 +30,9 @@ class CommentsController < ApplicationController
   end
 
   def upvote
-    @comment = Comment.find(params[:id])
-    @vote = @comment #ajax purposes
-    if @comment.upvote!(current_user).save
+    @selected = Comment.find(params[:id])
+    @vote = @selected #ajax purposes
+    if @selected.upvote!(current_user)
       respond_to do |format|
         format.html do
           flash[:success] = "Upvoted!"
@@ -44,15 +44,15 @@ class CommentsController < ApplicationController
   end
 
   def downvote
-    @comment = Comment.find(params[:id])
-    @vote = @comment
-    if @comment.downvote!
+    @selected = Comment.find(params[:id])
+    @vote = @selected
+    if @selected.downvote!(current_user)
       respond_to do |format|
         format.html do
-          flash[:success] = "Upvoted!"
+          flash[:success] = "Downvoted!"
           redirect_to(:back)
         end
-        format.js { render :action => "upvote" }
+        format.js
       end
     end
   end

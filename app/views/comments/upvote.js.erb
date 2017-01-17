@@ -1,1 +1,18 @@
-$("#vote-<%=@vote.id%>").html('<%= pluralize((@vote.upvotes - @vote.downvotes), 'point')%>');
+$(document).ready(function() {
+	$("#vote-<%=@vote.id%>").html('<%= pluralize((@vote.upvotes - @vote.downvotes), 'point')%>');
+
+  var upvote_btn = $(".btn-upvote-<%=@selected.id%>");
+  var downvote_btn = $(".btn-downvote-<%=@selected.id%>");
+
+  if (upvote_btn.hasClass("btn-warning")) {
+    upvote_btn.removeClass("btn-warning").addClass("btn-default");
+    return true;
+  } else {
+    upvote_btn.removeClass("btn-default").addClass("btn-warning");
+    if (downvote_btn.hasClass("btn-warning")) {
+      downvote_btn.removeClass("btn-warning").addClass("btn-default");
+    }
+    return true;
+  }
+
+});

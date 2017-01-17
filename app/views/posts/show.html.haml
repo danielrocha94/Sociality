@@ -12,10 +12,10 @@
 
       %div
         = link_to upvote_path(@post), method: :post, remote: true do
-          .btn.btn-default
+          .btn{class: ("btn-upvote-#{@post.id} "+ ((@post.liked_by_user?(current_user)) ? "btn-warning" : "btn-default"))}
             %i.fa.fa-arrow-up
         = link_to downvote_path(@post), method: :post, remote: true do
-          .btn.btn-default
+          .btn{class: ("btn-downvote-#{@post.id} "+ ((@post.disliked_by_user?(current_user)) ? "btn-warning" : "btn-default"))}
             %i.fa.fa-arrow-down
       %div.pt2.center
         = image_tag @post.content.url(:big)

@@ -36,23 +36,23 @@ class PostsController < ApplicationController
   end
 
   def downvote
-    post = Post.find(params[:id])
-    @vote = post
-    if post.downvote!
+    @selected = Post.find(params[:id])
+    @vote = @selected
+    if @selected.downvote!(current_user)
       respond_to do |format|
         format.html do
-          flash[:success] = "Upvoted!"
+          flash[:success] = "Downvoted!"
           redirect_to(:back)
         end
-        format.js { render :file => "/comments/upvote" }
+        format.js { render :file => "/comments/downvote" }
       end
     end
   end
 
   def upvote
-    post = Post.find(params[:id])
-    @vote = post
-    if post.upvote!
+    @selected = Post.find(params[:id])
+    @vote = @selected
+    if @selected.upvote!(current_user)
       respond_to do |format|
         format.html do
           flash[:success] = "Upvoted!"
