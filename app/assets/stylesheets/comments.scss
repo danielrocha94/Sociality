@@ -8,6 +8,20 @@
   }
 }
 
+.post_title {
+  color: #000;
+  &:hover{
+    text-decoration: none;
+  }
+  &:visited {
+    text-decoration: none;
+  }
+  &:active {
+    text-decoration: none;
+  }
+
+}
+
 .user_link {
   color: #000;
   &:hover{

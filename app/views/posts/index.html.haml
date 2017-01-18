@@ -5,9 +5,9 @@
         %ul.pl0.ml0
           %li.list-style-none
             .h3.bold
-              = post.title
+              = link_to post.title, post_path(post), :target => '_blank', :class => "post_title"
             %div
-              = image_tag post.content.url(:big)
+              = link_to (image_tag post.content.url(:big)), post_path(post), :target => '_blank'
         %span{id: "vote-#{post.id}"}
           = pluralize((post.upvotes - post.downvotes), 'point')
         •
@@ -21,8 +21,9 @@
           = link_to downvote_path(post), method: :post, remote: true do
             .btn{class: ("btn-downvote-#{post.id} "+ ((post.disliked_by_user?(current_user)) ? "btn-warning" : "btn-default"))}
               %i.fa.fa-arrow-down
-          = link_to post_path(post) do
+          = link_to post_path(post, :anchor => "comments_content" ), :target => '_blank' do
             .btn.btn-default
               %i.fa.fa-comment
+        %br
         %hr
 
