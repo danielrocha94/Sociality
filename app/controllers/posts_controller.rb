@@ -21,6 +21,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user_id = current_user.id
     if @post.save
+      @post.upvote!(current_user)
       flash[:success] = "Post created!"
       redirect_to posts_path
     else
