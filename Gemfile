@@ -14,6 +14,7 @@ gem 'sdoc',                 '0.4.0', group: :doc
 gem 'haml-rails',           '0.9'
 gem 'font-awesome-rails'
 gem "paperclip",            '~> 5.0.0'
+gem 'paperclip-cloudinary'
 
 group :development, :test do
   gem 'pry-rails'

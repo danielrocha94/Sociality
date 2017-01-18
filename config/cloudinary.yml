@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: dlqgen5rf
+  api_key: '471112445522989'
+  api_secret: ksbfbQW0y5X-jTLbcApdrOnbi8I
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: dlqgen5rf
+  api_key: '471112445522989'
+  api_secret: ksbfbQW0y5X-jTLbcApdrOnbi8I
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: dlqgen5rf
+  api_key: '471112445522989'
+  api_secret: ksbfbQW0y5X-jTLbcApdrOnbi8I
+  enhance_image_tag: true
+  static_image_support: false
