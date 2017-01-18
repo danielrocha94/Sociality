@@ -74,10 +74,12 @@ class Post < ActiveRecord::Base
   end
 
   def liked_by_user?(current_user)
+    return false if current_user.nil?
     self.likes.where(user_id: current_user.id, positive: true).any?
   end
 
   def disliked_by_user?(current_user)
+    return false if current_user.nil?
     self.likes.where(user_id: current_user.id, positive: false).any?
   end
 end
