@@ -1,15 +1,30 @@
 .row
   .col-md-6.col-md-offset-3
-    %p.h1.center
+    %label.new-post-title__label
       Create a new Post
     = form_for @post, html: { multipart: true } do |f|
       %div.field
-        = f.label :title
-        = f.text_field :title, autofocus: true
-      %div.field
-        = f.file_field :content
-        = f.label :content
-        = #f.text_area :content, size: "5x5"
-      %div.actions
+      .field.influencer-photo-upload
+        .row
+          .col-md-3
+            %label.user-photo-upload__label
+              %i.fa.fa-camera
+              1. Submit a Photo / Video
+            .user-photo-upload__placeholder{ style: "background-image: url('#{@post.content.url(:jpg)}')"}
+              .user-photo-upload__file-container
+                %p.user-photo-upload__file-text
+                  %i.fa.fa-camera
+                  %br
+                  %span
+                    Upload a photo
+                = f.file_field :content, class: "user-photo-upload__file"
+          .col-md-6
+            %label.user-title__label
+              %i.fa.fa-pencil
+              2. Write something about your post.
+            .user-title-container
+              = f.text_area :title, placeholder: 'The title you would like your post to have.', autofocus: true, class: "user-title__textarea"
+      %br
+      %div.actions.mt2
         = f.submit "Create post", :class => "btn btn-primary"
 

@@ -1,0 +1,87 @@
+.new-post-title__label {
+  display: block;
+  margin-bottom: 20px;
+  font-size: 2em;
+  font-family: $lato-font;
+}
+
+
+.influencer-photo-upload {
+  border: 1px solid #d9d9d9;
+  padding: 20px;
+  .col-md-3 {width: 40%;}
+  .col-md-9 {width: 60%;}
+  .col-has-borders {
+    height: 222px;
+    .influencer-photo-upload__label {margin-bottom: 86px;}
+  }
+}
+
+.user-photo-upload__placeholder {
+  background-color: $color-blue; background-repeat: no-repeat; background-size: cover;
+  height: 220px;
+  position: relative;
+}
+
+.user-photo-upload__label {
+  display: block;
+  margin-bottom: 20px;
+  i {
+    color: $color-blue;
+    float: right;
+    margin-top: 5px;
+  }
+}
+
+.user-photo-upload__file-container {
+  align-items: center;
+  border: 2px solid white;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  left: 0; top: 0;
+  margin: 0 auto;
+  position: absolute;
+  text-align: center;
+  width: 100%; height: 100%;
+  i {
+    display: inline-block;
+    font-size: 40px;
+    margin: 0 auto;
+  }
+}
+
+.user-photo-upload__file-text {
+  color: white;
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.user-photo-upload__file {
+  min-height: 220px;
+  left: 0; top: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 10;
+  cursor: pointer;
+}
+
+.user-title__label {
+  display: block;
+  margin-bottom: 20px;
+  i {
+    color: $color-blue;
+    float: right;
+    margin-top: 5px;
+  }
+}
+
+.user-title__textarea {
+  border: 1px solid $color-blue;
+  color: $color-blue;
+  font-size: 18px; font-familt: $lato-font;
+  height: 220px;
+  letter-spacing: 0;
+  padding: 10px;
+  resize: none;
+}
+
