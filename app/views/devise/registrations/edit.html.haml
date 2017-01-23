@@ -1,0 +1,23 @@
+.row
+  .col-md-6.col-md-offset-3
+    .user-settings
+      .col-md-3
+        = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { multipart: true, method: :put }) do |f|
+          = devise_error_messages!
+          %p.settings__profile-picture
+            Profile Picture
+          %label.user-photo-upload__label
+            %i.fa.fa-camera
+            1. Submit a Photo / Video
+          .user-photo-upload__placeholder
+            .user-photo-upload__file-container
+              %p.user-photo-upload__file-text
+                %i.fa.fa-camera
+                %br
+                %span
+                  Upload a photo
+              = f.file_field :content, class: "user-photo-upload__file"
+
+      .col-md-6
+        %p.settings__title
+          Account Information

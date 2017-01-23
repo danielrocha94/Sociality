@@ -193,3 +193,48 @@ hr {
     border-style: inset;
     border-width: 1px;
 }
+
+.color-red {
+  background-color: #c9302c;
+  color: #e5e5e5;
+  border: 1px solid #666666;
+}
+
+.color-green {
+  background-color: #5eba7d;
+  color: #e5e5e5;
+  border: 1px solid #666666;
+}
+
+.color-blue {
+  color: #005fff;
+}
+
+.color-yellow {
+ color: #FFA000;
+}
+
+.hover-red {
+  &:hover {
+    color: #8c211e;
+  }
+}
+
+.hover-blue{
+ &:hover {
+   color: #0042b2;
+ }
+}
+
+.hover-green{
+  &:hover {
+    color: #5eba7d;
+  }
+}
+
+.hover-yellow {
+  &:hover {
+   color: #cc8000;
+  }
+}
+

@@ -10,6 +10,4 @@ class UserTest < ActiveSupport::TestCase
     @user.last_name = ""
     assert_not @user.valid?
   end
-
-
 end

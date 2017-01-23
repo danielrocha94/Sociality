@@ -8,7 +8,7 @@ class Post < ActiveRecord::Base
 
   validates :title,
              presence: true,
-             length: {maximum: 140}
+             length: {maximum: 140, minimum: 6 }
 
   validates :content,
              presence: true

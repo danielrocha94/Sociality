@@ -4,13 +4,13 @@ $(document).ready(function() {
   var upvote_btn = $(".btn-upvote-<%=@selected.id%>");
   var downvote_btn = $(".btn-downvote-<%=@selected.id%>");
 
-  if (upvote_btn.hasClass("btn-warning")) {
-    upvote_btn.removeClass("btn-warning").addClass("btn-default");
+  if (upvote_btn.hasClass("color-green fa-lg")) {
+    upvote_btn.removeClass("color-green fa-lg");
     return true;
   } else {
-    upvote_btn.removeClass("btn-default").addClass("btn-warning");
-    if (downvote_btn.hasClass("btn-warning")) {
-      downvote_btn.removeClass("btn-warning").addClass("btn-default");
+    upvote_btn.addClass("color-green fa-lg");
+    if (downvote_btn.hasClass("color-red fa-lg")) {
+      downvote_btn.removeClass("color-red fa-lg");
     }
     return true;
   }
