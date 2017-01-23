@@ -17,8 +17,8 @@
     %div
       = link_to "Reply", reply_box_path(@comment), method: :post, remote: true
       = link_to comment_upvote_path(@comment), method: :post, remote: true do
-        .btn.btn-default
+        .btn.btn-default{class: "hover-green btn-upvote-#{@comment.id} "+ ((@comment.liked_by_user?(current_user)) ? "fa-lg color-green" : "")}
           %i.fa.fa-arrow-up
       = link_to comment_downvote_path(@comment), method: :post, remote: true do
-        .btn.btn-default
+        .btn.btn-default{class: "hover-red btn-downvote-#{@comment.id} "+ ((@comment.disliked_by_user?(current_user)) ? "fa-lg color-red" : "")}
           %i.fa.fa-arrow-down

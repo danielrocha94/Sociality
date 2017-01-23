@@ -12,11 +12,11 @@
 
       %div
         = link_to upvote_path(@post), method: :post, remote: true do
-          .btn{class: ("btn-upvote-#{@post.id} "+ ((@post.liked_by_user?(current_user)) ? "btn-danger fa-lg" : "btn-default"))}
-            %i.fa.fa-heart
+          .btn{class: ("btn-default hover-green btn-upvote-#{@post.id} "+ ((@post.liked_by_user?(current_user)) ? "fa-lg color-green" : ""))}
+            %i.fa.fa-thumbs-up
         = link_to downvote_path(@post), method: :post, remote: true do
-          .btn{class: ("btn-downvote-#{@post.id} "+ ((@post.disliked_by_user?(current_user)) ? "btn-danger" : "btn-default"))}
-            %i.fa.fa-arrow-down
+          .btn{class: ("btn-default hover-red btn-downvote-#{@post.id} "+ ((@post.disliked_by_user?(current_user)) ? "fa-lg color-red" : ""))}
+            %i.fa.fa-thumbs-down
       %div.pt2.center
         = image_tag @post.content.url(:big)
       %hr{id: 'comments_content'}

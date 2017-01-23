@@ -18,10 +18,10 @@
         %div
           = link_to "Reply", reply_box_path(comment), method: :post, remote: true
           = link_to comment_upvote_path(comment), method: :post, remote: true do
-            .btn{class: "btn-upvote-#{comment.id} "+ ((comment.liked_by_user?(current_user)) ? "btn-danger" : "btn-default")}
+            .btn{class: "btn-default hover-green btn-upvote-#{comment.id} "+ ((comment.liked_by_user?(current_user)) ? "fa-lg color-green" : "")}
               %i.fa.fa-arrow-up
           = link_to comment_downvote_path(comment), method: :post, remote: true do
-            .btn{class: "btn-downvote-#{comment.id} "+ ((comment.disliked_by_user?(current_user)) ? "btn-danger" : "btn-default")}
+            .btn{class: "btn-default hover-red btn-downvote-#{comment.id} "+ ((comment.disliked_by_user?(current_user)) ? "fa-lg color-red" : "")}
               %i.fa.fa-arrow-down
 - if comment.has_replies?
   - comment.replies.each do |comment|
@@ -44,10 +44,10 @@
         %div
           = link_to "Reply", reply_box_path(comment), method: :post, remote: true
           = link_to comment_upvote_path(comment), method: :post, remote: true do
-            .btn{class: ("btn-upvote-#{comment.id} "+ ((comment.liked_by_user?(current_user)) ? "btn-danger" : "btn-default"))}
+            .btn{class: "btn-default hover-green btn-upvote-#{comment.id} "+ ((comment.liked_by_user?(current_user)) ? "fa-lg color-green" : "")}
               %i.fa.fa-arrow-up
           = link_to comment_downvote_path(comment), method: :post, remote: true do
-            .btn{class: ("btn-downvote-#{comment.id} "+ ((comment.disliked_by_user?(current_user)) ? "btn-danger" : "btn-default"))}
+            .btn{class: "btn-default hover-red btn-downvote-#{comment.id} "+ ((comment.disliked_by_user?(current_user)) ? "fa-lg color-red" : "")}
               %i.fa.fa-arrow-down
 - unless comment.is_reply
   %div{id: "reply-post-#{comment.id}" }
