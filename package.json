@@ -1,0 +1,26 @@
+{
+  "name": "sociality",
+  "version": "1.0.0",
+  "description": "sociality npm for eslint",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielrocha94/Sociality.git"
+  },
+  "author": "Daniel Rocha",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danielrocha94/Sociality/issues"
+  },
+  "homepage": "https://github.com/danielrocha94/Sociality#readme",
+  "devDependencies": {
+    "eslint": "^3.15.0",
+    "eslint-plugin-react": "^6.9.0"
+  }
+}

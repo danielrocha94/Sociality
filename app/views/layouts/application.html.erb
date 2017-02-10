@@ -8,7 +8,7 @@
   </head>
   <body>
     <%= render 'layouts/header'%>
-    <div class="jumbotron container-fluid centered ">
+    <div class="container-fluid centered " style="background-color: #EEE;">
     <%= render 'layouts/messages'%>
     <%= yield %>
     <%= debug(params) if Rails.env.development? %>

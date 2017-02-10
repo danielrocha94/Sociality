@@ -13,8 +13,9 @@ gem 'jbuilder',             '2.2.3'
 gem 'sdoc',                 '0.4.0', group: :doc
 gem 'haml-rails',           '0.9'
 gem 'font-awesome-rails'
-gem "paperclip",            '~> 5.0.0'
+gem 'paperclip',            '~> 5.0.0'
 gem 'paperclip-cloudinary'
+gem 'react-rails'
 
 group :development, :test do
   gem 'pry-rails'
