@@ -1,0 +1,27 @@
+%header.navbar.navbar-fixed-top.navbar-custom
+  .container
+    %nav
+      %span.nav.navbar-nav.navbar-left.header__search
+        %li= link_to "", root_path, :class => " fa fa-universal-access fa-lg", :id => "header__logo"
+        %span.search-nav
+          = text_field_tag("header__search-bar", nil, placeholder: "Search for users")
+          = link_to "", "#", :class => "fa fa-search fa-lg btn", :id => "header__search-icon"
+      %ul.nav.navbar-nav.navbar-right.header-no-wrapping
+        - if user_signed_in?
+          %li
+            =link_to current_user, :class => "header__signedin-profile" do
+              = gravatar_for(current_user, {size:20, style:'tiny'})
+              = "#{current_user.first_name}"
+          %li
+            = link_to "Home", root_path
+            %li= link_to "", users_path, :class => "fa fa-user-plus fa-lg"
+            %li= link_to "", "#", :class => "fa fa-envelope fa-lg"
+            %li= link_to "", "#", :class => "fa fa-bullhorn fa-lg"
+            %li
+            %li.dropdown
+              %a.dropdown-toggle.fa.fa-caret-square-o-down.fa-lg{"data-toggle" => "dropdown"}
+              %ul.dropdown-menu
+                %li= link_to "settings", edit_user_registration_path, class: "header__dropdown-menu"
+                %li.divider
+                %li= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__dropdown-menu"
+
