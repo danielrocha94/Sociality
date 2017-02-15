@@ -24,4 +24,8 @@
                 %li= link_to "settings", edit_user_registration_path, class: "header__dropdown-menu"
                 %li.divider
                 %li= link_to "Logout", destroy_user_session_path, method: :delete, class: "header__dropdown-menu"
+        - else
+          %li= link_to "Login", new_user_session_path, class: "header__login-button"
+          %li.px2.mt2.h4
+          %li= link_to "Create new account", new_registration_path(resource_name), class: "header__login-button"
 

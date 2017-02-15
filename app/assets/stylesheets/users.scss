@@ -21,17 +21,59 @@
 }
 
 .user-show__timeline {
+  position: absolute;
   background-color: #fff;
   padding: 10px 250px;
   width: 100%;
+  max-width: 1095px;
+  min-width: 1000px;
   border: 1px solid $color-light-gray;
 
   a {
     font-weight: bold;
     cursor: pointer;
-    padding: 3% 4%;
+    padding: 2.3% 4%;
     text-decoration: none;
     border-left: 1px solid $color-light-gray;
+
+    &:hover {
+      background-color: #F6F7F9;
+      border: 1px solid $color-light-gray;
+    }
   }
 }
 
+.user-show__timeline-actions {
+  padding: 0 7px;
+  position: absolute;
+  text-align: right;
+  width: 207px;
+  top: 270px;
+  left: 800px;
+
+  a {
+    background-color: white;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 2% 4%;
+    text-decoration: none;
+
+    &:hover {
+      background-color: #F6F7F9;
+      border: 1px solid $color-light-gray;
+    }
+    &:active {
+      border: 1px solid #7B8ADB;
+    }
+  }
+}
+
+.user-show__cover-photo-camera {
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  i {
+    color: white;
+    opacity: 0.5;
+  }
+}

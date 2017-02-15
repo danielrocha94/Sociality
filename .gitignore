@@ -16,3 +16,6 @@
 /public
 !/log/.keep
 /tmp
+
+# Ignore node_module
+/node_modules/*
